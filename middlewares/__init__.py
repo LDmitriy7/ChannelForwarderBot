@@ -1,2 +1,6 @@
+from loader import dp
+from .check_access import CheckAccess
+
+
 def setup():
-    pass
+    dp.setup_middleware(CheckAccess())

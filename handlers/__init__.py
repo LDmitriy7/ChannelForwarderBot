@@ -3,6 +3,3 @@ def setup():
 
     from . import start
     from . import fallbacks
-
-    from . import for_admins
-    for_admins.setup()
