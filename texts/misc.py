@@ -1,4 +1,4 @@
-welcome = 'Привет, мир!'
+welcome = 'Приветствую! Используй команды в меню, чтобы задать канал и группу'
 cancelled = 'Отменено'
 not_implemented = 'Не реализовано'
 commands_updated = 'Команды обновлены'
@@ -8,3 +8,5 @@ channel_and_group_is = """
 Заданный канал: <a href="{channel_url}">{channel_id}</a>
 Заданная группа: <a href="{group_url}">{group_id}</a>
 """
+
+show_me_channel = 'Отправь мне юзернейм или ID канала. Либо перешли любое сообщение из этого канала'

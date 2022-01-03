@@ -1,22 +1,15 @@
-import shelve
-
 from aiogram import types
-from aiogram.dispatcher import FSMContext
 
-import config
-from config import SHELVE_FILE, CHANNEL_KEY, GROUP_KEY
 from loader import dp
+from models import documents
 
-change_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-change_keyboard.add('Изменить канал', 'Изменить группу')
 
-#
-#
-# @dp.channel_post_handler()
-# async def forward_to_group(msg: types.Message):
-#     with shelve.open(SHELVE_FILE) as sh:
-#         channel = sh.get(CHANNEL_KEY, config.CHANNEL)
-#         group = sh.get(GROUP_KEY, config.GROUP)
-#
-#     if channel in [msg.chat.id, f'@{msg.chat.username}']:
-#         await msg.forward(group)
+@dp.channel_post_handler()
+async def forward_post(msg: types.Message):
+    route: documents.Route = documents.Route.objects.first()
+
+    if not route:
+        return
+
+    if route.group_id and route.channel_id == msg.chat.id:
+        await msg.forward(route.group_id)
