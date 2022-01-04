@@ -11,10 +11,10 @@ CANCEL = 'cancel'
 INFO = 'info'
 SET_CHANNEL = 'set_channel'
 SET_GROUP = 'set_group'
+SHOW_CHAT_ID = 'show_chat_id'
 
 USER_COMMANDS = [
-    # types.BotCommand(START, 'Запустить бота'),
-    # types.BotCommand(CANCEL, 'Отменить'),
+    types.BotCommand(SHOW_CHAT_ID, 'Показать ID этого чата'),
 ]
 
 ADMIN_COMMANDS = USER_COMMANDS + [
